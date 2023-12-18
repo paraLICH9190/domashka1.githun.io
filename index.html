@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Обчислення усього трикутника</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <script language="Javascript">
+      function calculateArea(a, b, c) {
+var semiPerimeter = (parseFloat(a.value) + parseFloat(b.value) + parseFloat(c.value)) / 2;
+
+var ploshad = Math.sqrt(semiPerimeter*(semiPerimeter-parseFloat(a.value))*(semiPerimeter-parseFloat(b.value))*(semiPerimeter-parseFloat(c.value)));
+
+var perimetr = (parseFloat(a.value) + parseFloat(b.value) + parseFloat(c.value));
+
+var radiusvpis = Math.sqrt(((semiPerimeter-parseFloat(a.value))*(semiPerimeter-parseFloat(b.value))*(semiPerimeter-parseFloat(c.value)))/semiPerimeter);
+
+var radiusopis = parseFloat(a.value)*parseFloat(b.value)*parseFloat(c.value)/(4*Math.sqrt(semiPerimeter*(semiPerimeter-parseFloat(a.value))*(semiPerimeter-parseFloat(b.value))*(semiPerimeter-parseFloat(c.value))));
+
+        form1.output1.value = semiPerimeter;
+        form1.output2.value = ploshad;
+        form1.output3.value = perimetr;
+        form1.output4.value = radiusvpis;
+        form1.output5.value = radiusopis;
+      }
+    </script>
+  </head>
+  <body>
+    <p>Обчислення усього трикутника</p>
+    <form name="form1">
+      <fieldset style="width: 40%">
+        <legend>Введення даних</legend>
+        Перший катет: <input type="text" size=7 name="st1"> <br>
+        Другий катет: <input type="text" size=7 name="st2"> <br>
+        Гіпотенуза: <input type="text" size=7 name="st3"> <br>
+      </fieldset>
+      <fieldset style="width: 40%">
+        <legend>Обробка та виведення даних</legend>
+        Півпериметр: <input type="text" size=7 name="output1" readonly> <br>
+        Площа: <input type="text" size=7 name="output2" readonly> <br>
+        Периметр: <input type="text" size=7 name="output3" readonly> <br>
+        Радіус вписаного кола: <input type="text" size=7 name="output4" readonly> <br>
+        Радіус описаного кола: <input type="text" size=7 name="output5" readonly> <br>
+        <input type="button" value="Обчислити" style="margin:10px" onClick="calculateArea(form1.st1, form1.st2, form1.st3)">
+      </fieldset>
+    </form>
+<p style="text-align:center;">
+<img src="TREUGOLNIK.png" style="width:300px;">
+  </body>
+</html>
